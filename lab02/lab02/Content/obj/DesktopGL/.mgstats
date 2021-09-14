@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/a1/source/repos/lab02/lab02/Content/Images/asteroid.tga","C:/Users/a1/source/repos/lab02/lab02/Content/bin/DesktopGL/Images/asteroid.xnb","TextureProcessor","Texture2DContent",4148,5117,0.0867368
+"C:/Users/a1/source/repos/lab02/lab02/Content/Images/background.bmp","C:/Users/a1/source/repos/lab02/lab02/Content/bin/DesktopGL/Images/background.xnb","TextureProcessor","Texture2DContent",921654,1228885,0.0449091
