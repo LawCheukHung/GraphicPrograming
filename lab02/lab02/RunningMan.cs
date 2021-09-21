@@ -17,5 +17,52 @@ namespace lab02
         private SpriteBatch _spriteBatch;
 
         public RunningMan(Game g) : base(g) { }
+
+        public override void Initialize()
+        {
+            position.X = GraphicsDevice.Viewport.Width/2;
+            position.Y = 160;
+            velocity.X = 4.5f;
+            velocity.Y = 0;
+            frameCount = 10;
+            frameTimeStep = 1000 / 25f;
+            base.Initialize();
+        }
+
+        protected override void LoadContent()
+        {
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            texture = Game.Content.Load<Texture2D>("Images\\Run");
+            frameRect = new Rectangle(0, 0, texture.Width/20, texture.Height);
+            base.LoadContent();
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            // increment elapsed frame time
+            frameElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
+            // is it time to move on to the next frame?
+            position += velocity;
+
+            if (frameElapsedTime >= frameTimeStep)
+            {
+                currentFrame = (currentFrame + 1) % frameCount;
+                // update the frame rectangle (only x-coordinate needed)
+                frameRect.X = currentFrame * frameRect.Width;
+	            frameElapsedTime = 0; // reset the elapsed counter
+                          // checking for screen edge
+            }
+
+            base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(texture, position, frameRect, Color.White);
+            _spriteBatch.End();
+
+            base.Draw(gameTime);
+        }
     }
 }

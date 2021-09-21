@@ -10,6 +10,7 @@ namespace lab02
         private SpriteBatch _spriteBatch;
         private Texture2D bgTexture;
         private Rock[] rocks;
+        private RunningMan rMan;
 
         public Game1()
         {
@@ -27,6 +28,9 @@ namespace lab02
                 rocks[i] = new Rock(this);
                 Components.Add(rocks[i]);
             }
+
+            rMan = new RunningMan(this);
+            Components.Add(rMan);
 
             base.Initialize();
         }
