@@ -38,9 +38,21 @@ namespace lab02
 
         public override void Update(GameTime gameTime)
         {
-            position.Y += velocity.Y;
+            position += velocity;
             rotateAngle = (rotateAngle + rotateSpeed) % MathHelper.TwoPi;
+            if(position.Y > 225)
+            {
+                Initialize();
+            }
             base.Update(gameTime);
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(texture, position, null, Color.White, rotateAngle, center, 1, SpriteEffects.None, 0);
+            _spriteBatch.End();
+            base.Draw(gameTime);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace lab02
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private Texture2D bgTexture;
+        private Rock[] rocks;
 
         public Game1()
         {
@@ -20,6 +21,12 @@ namespace lab02
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            rocks = new Rock[5];
+            for(int i = 0; i < rocks.Length; i++)
+            {
+                rocks[i] = new Rock(this);
+                Components.Add(rocks[i]);
+            }
 
             base.Initialize();
         }
