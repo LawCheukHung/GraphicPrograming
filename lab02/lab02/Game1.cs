@@ -48,7 +48,7 @@ namespace lab02
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-            _spriteBatch.Draw(bgTexture, GraphicsDevice.Viewport.Bounds, Color.Red);
+            _spriteBatch.Draw(bgTexture, GraphicsDevice.Viewport.Bounds, Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);
