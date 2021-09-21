@@ -4,8 +4,8 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/a1/source/repos/lab02/lab02/Content/Images/asteroid.tga</File>
-    <File>C:/Users/a1/source/repos/lab02/lab02/Content/Images/background.bmp</File>
+    <File>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab02/lab02/Content/Images/asteroid.tga</File>
+    <File>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab02/lab02/Content/Images/background.bmp</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

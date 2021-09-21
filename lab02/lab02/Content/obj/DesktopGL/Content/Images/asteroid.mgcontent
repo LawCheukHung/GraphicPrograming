@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/a1/source/repos/lab02/lab02/Content/Images/asteroid.tga</SourceFile>
-  <SourceTime>2010-02-10T17:15:54+08:00</SourceTime>
-  <DestFile>C:/Users/a1/source/repos/lab02/lab02/Content/bin/DesktopGL/Content/Images/asteroid.xnb</DestFile>
-  <DestTime>2021-09-14T11:25:05.9332129+08:00</DestTime>
+  <SourceFile>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab02/lab02/Content/Images/asteroid.tga</SourceFile>
+  <SourceTime>2021-09-21T09:16:20.3468746+08:00</SourceTime>
+  <DestFile>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab02/lab02/Content/bin/DesktopGL/Content/Images/asteroid.xnb</DestFile>
+  <DestTime>2021-09-21T09:19:17.4926617+08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-11T00:17:54+08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

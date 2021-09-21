@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\a1\\source\\repos\\lab02\\lab02\\lab02.csproj": {}
+    "C:\\Users\\a1\\Documents\\GitHub\\GraphicPrograming\\lab02\\lab02\\lab02.csproj": {}
   },
   "projects": {
-    "C:\\Users\\a1\\source\\repos\\lab02\\lab02\\lab02.csproj": {
+    "C:\\Users\\a1\\Documents\\GitHub\\GraphicPrograming\\lab02\\lab02\\lab02.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\a1\\source\\repos\\lab02\\lab02\\lab02.csproj",
+        "projectUniqueName": "C:\\Users\\a1\\Documents\\GitHub\\GraphicPrograming\\lab02\\lab02\\lab02.csproj",
         "projectName": "lab02",
-        "projectPath": "C:\\Users\\a1\\source\\repos\\lab02\\lab02\\lab02.csproj",
+        "projectPath": "C:\\Users\\a1\\Documents\\GitHub\\GraphicPrograming\\lab02\\lab02\\lab02.csproj",
         "packagesPath": "C:\\Users\\a1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\a1\\source\\repos\\lab02\\lab02\\obj\\",
+        "outputPath": "C:\\Users\\a1\\Documents\\GitHub\\GraphicPrograming\\lab02\\lab02\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
