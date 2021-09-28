@@ -88,14 +88,18 @@ namespace lab02
         private bool CheckCollision()
         {
             Rectangle personRect = new Rectangle((int)rMan.position.X, (int)rMan.position.Y, rMan.frameRect.Width, rMan.frameRect.Height);
-            
-            foreach(Rock r in rocks)
+            Rectangle personRect2 = new Rectangle((int)rMan.position.X - GraphicsDevice.Viewport.Width, (int)rMan.position.Y, rMan.frameRect.Width, rMan.frameRect.Height);
+
+            foreach (Rock r in rocks)
             {
                 Rectangle rockRect = new Rectangle(0, 0, r.texture.Width, r.texture.Height);
                 Matrix transform = Matrix.CreateTranslation(new Vector3(-r.center, 0)) * Matrix.CreateRotationZ(r.rotateAngle) * Matrix.CreateTranslation(new Vector3(r.position, 0));
                 rockRect = CalculateBoundingRectangle(rockRect, transform);
 
                 if(personRect.Intersects(rockRect)) 
+                    return true;
+
+                if(personRect2.Intersects(rockRect))
                     return true;
             }
             return false;
