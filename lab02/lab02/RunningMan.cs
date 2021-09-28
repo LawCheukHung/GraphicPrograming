@@ -9,11 +9,11 @@ namespace lab02
 {
     class RunningMan : DrawableGameComponent
     {
-        private Vector2 position, velocity;
+        public Vector2 position, velocity;
+        public Rectangle frameRect;
         private Texture2D texture;
         private int frameCount, currentFrame;
         private double frameElapsedTime, frameTimeStep;
-        private Rectangle frameRect;
         private SpriteBatch _spriteBatch;
 
         public RunningMan(Game g) : base(g) { }
