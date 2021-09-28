@@ -22,7 +22,7 @@ namespace lab02
         {
             position.X = GraphicsDevice.Viewport.Width/2;
             position.Y = 160;
-            velocity.X = 4.5f;
+            velocity.X = 6f;
             velocity.Y = 0;
             frameCount = 10;
             frameTimeStep = 1000 / 25f;
@@ -33,25 +33,28 @@ namespace lab02
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             texture = Game.Content.Load<Texture2D>("Images\\Run");
-            frameRect = new Rectangle(0, 0, texture.Width/20, texture.Height);
+            frameRect = new Rectangle(0, 0, texture.Width/10, texture.Height);
             base.LoadContent();
         }
 
         public override void Update(GameTime gameTime)
         {
             // increment elapsed frame time
-            frameElapsedTime += gameTime.ElapsedGameTime.TotalMilliseconds;
+            frameElapsedTime += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             // is it time to move on to the next frame?
-            position += velocity;
 
             if (frameElapsedTime >= frameTimeStep)
             {
-                currentFrame = (currentFrame + 1) % frameCount;
+                position += velocity;
+                currentFrame = (currentFrame + 9) % frameCount;
                 // update the frame rectangle (only x-coordinate needed)
                 frameRect.X = currentFrame * frameRect.Width;
 	            frameElapsedTime = 0; // reset the elapsed counter
                           // checking for screen edge
             }
+
+            if(position.X > GraphicsDevice.Viewport.Width)
+                position.X = 0;
 
             base.Update(gameTime);
         }
@@ -60,6 +63,7 @@ namespace lab02
         {
             _spriteBatch.Begin();
             _spriteBatch.Draw(texture, position, frameRect, Color.White);
+            _spriteBatch.Draw(texture, new Vector2(position.X - GraphicsDevice.Viewport.Width, position.Y), frameRect, Color.White);
             _spriteBatch.End();
 
             base.Draw(gameTime);

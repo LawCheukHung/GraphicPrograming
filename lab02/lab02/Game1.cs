@@ -17,6 +17,7 @@ namespace lab02
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            //this.TargetElapsedTime = System.TimeSpan.FromMilliseconds(1000/24f);
         }
 
         protected override void Initialize()
