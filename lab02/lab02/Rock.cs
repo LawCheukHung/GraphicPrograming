@@ -9,9 +9,9 @@ namespace lab02
 {
     class Rock : DrawableGameComponent
     {
-        private Texture2D texture;
-        private Vector2 position, center, velocity;
-        private float rotateAngle, rotateSpeed;
+        public Texture2D texture;
+        public Vector2 position, center, velocity;
+        public float rotateAngle, rotateSpeed;
         private SpriteBatch _spriteBatch;
         public static Random r = new Random();
 
