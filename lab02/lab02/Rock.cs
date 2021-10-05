@@ -9,6 +9,7 @@ namespace lab02
 {
     class Rock : DrawableGameComponent
     {
+        public Color[] data;
         public Texture2D texture;
         public Vector2 position, center, velocity;
         public float rotateAngle, rotateSpeed;
@@ -44,6 +45,10 @@ namespace lab02
             {
                 Initialize();
             }
+
+            data = new Color[texture.Width * texture.Height];
+            texture.GetData<Color>(data);
+
             base.Update(gameTime);
         }
 

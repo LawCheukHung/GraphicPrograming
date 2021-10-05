@@ -9,9 +9,11 @@ namespace lab02
 {
     class RunningMan : DrawableGameComponent
     {
+        public Color[] data;
         public Vector2 position, velocity;
         public Rectangle frameRect;
-        private Texture2D texture;
+        public Texture2D texture;
+        public Color manColor = Color.White;
         private int frameCount, currentFrame;
         private double frameElapsedTime, frameTimeStep;
         private SpriteBatch _spriteBatch;
@@ -49,6 +51,8 @@ namespace lab02
                 currentFrame = (currentFrame + 9) % frameCount;
                 // update the frame rectangle (only x-coordinate needed)
                 frameRect.X = currentFrame * frameRect.Width;
+                data = new Color[texture.Width * texture.Height];
+                texture.GetData<Color>(data);
 	            frameElapsedTime = 0; // reset the elapsed counter
                           // checking for screen edge
             }
@@ -62,8 +66,8 @@ namespace lab02
         public override void Draw(GameTime gameTime)
         {
             _spriteBatch.Begin();
-            _spriteBatch.Draw(texture, position, frameRect, Color.White);
-            _spriteBatch.Draw(texture, new Vector2(position.X - GraphicsDevice.Viewport.Width, position.Y), frameRect, Color.White);
+            _spriteBatch.Draw(texture, position, frameRect, manColor);
+            _spriteBatch.Draw(texture, new Vector2(position.X - GraphicsDevice.Viewport.Width, position.Y), frameRect, manColor);
             _spriteBatch.End();
 
             base.Draw(gameTime);
