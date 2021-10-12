@@ -9,6 +9,7 @@ namespace lab02
 {
     class RunningMan : DrawableGameComponent
     {
+        public const float MAN_SPEED = 4.5f;
         public Color[] data;
         public Vector2 position, velocity;
         public Rectangle frameRect;
@@ -24,7 +25,7 @@ namespace lab02
         {
             position.X = GraphicsDevice.Viewport.Width/2;
             position.Y = 160;
-            velocity.X = 6f;
+            velocity.X = 0.0f;
             velocity.Y = 0;
             frameCount = 10;
             frameTimeStep = 1000 / 25f;
@@ -48,7 +49,8 @@ namespace lab02
             if (frameElapsedTime >= frameTimeStep)
             {
                 position += velocity;
-                currentFrame = (currentFrame + 9) % frameCount;
+                if(velocity.X != 0)
+                    currentFrame = (currentFrame + 9) % frameCount;
                 // update the frame rectangle (only x-coordinate needed)
                 frameRect.X = currentFrame * frameRect.Width;
                 data = new Color[texture.Width * texture.Height];
@@ -59,12 +61,21 @@ namespace lab02
 
             if(position.X > GraphicsDevice.Viewport.Width)
                 position.X = 0;
+            if (position.X < 0)
+                position.X = GraphicsDevice.Viewport.Width;
 
             base.Update(gameTime);
         }
 
+        SpriteEffects direction = SpriteEffects.None;
+
         public override void Draw(GameTime gameTime)
         {
+            if(velocity.X < 0)
+                direction = SpriteEffects.FlipHorizontally;
+            else if(velocity.X > 0)
+                direction = SpriteEffects.None;
+
             _spriteBatch.Begin();
             _spriteBatch.Draw(texture, position, frameRect, manColor);
             _spriteBatch.Draw(texture, new Vector2(position.X - GraphicsDevice.Viewport.Width, position.Y), frameRect, manColor);

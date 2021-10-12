@@ -13,6 +13,10 @@ namespace lab02
         private Rock[] rocks;
         private RunningMan rMan;
         private int rockCount = 5;
+        private SpriteFont font;
+        private int score, life;
+        private double lastCollisionTime = 0;
+        public const int LIFE_MISS_DELAY = 1000;
 
         public Game1()
         {
@@ -35,6 +39,8 @@ namespace lab02
 
             rMan = new RunningMan(this);
             Components.Add(rMan);
+            score = 0;
+            life = 5;
 
             base.Initialize();
         }
@@ -43,6 +49,7 @@ namespace lab02
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             bgTexture = Content.Load<Texture2D>("Images\\background");
+            font = Content.Load<SpriteFont>("MyFont");
 
             // TODO: use this.Content to load your game content here
         }
@@ -52,15 +59,28 @@ namespace lab02
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
-            if(CheckCollision())
-                rMan.manColor = Color.Red;
-            else 
+            UpdateInput();
+
+            foreach (Rock r in rocks)
             {
-                rMan.manColor = Color.White;
-                base.Update(gameTime);
+                if(r.hit)
+                    score++;
+
+                r.hit = false;
             }
-            
+
+            // TODO: Add your update logic here
+            if (CheckCollision()) {
+                rMan.manColor = Color.Red;
+                if(life > 0 && gameTime.TotalGameTime.TotalMilliseconds - lastCollisionTime > LIFE_MISS_DELAY) {
+                    life--;
+                }
+            }
+            else 
+                rMan.manColor = Color.White;
+
+            if (life > 0)
+                base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
@@ -72,6 +92,12 @@ namespace lab02
             _spriteBatch.Draw(bgTexture, GraphicsDevice.Viewport.Bounds, Color.White);
             _spriteBatch.End();
 
+            _spriteBatch.Begin();
+            _spriteBatch.Draw(bgTexture, GraphicsDevice.Viewport.Bounds, Color.White);
+            _spriteBatch.DrawString(font, "Score: " + score, new Vector2(20, GraphicsDevice.Viewport.Height - 30), Color.White);
+            string message = "Life Remain: " + life;
+            _spriteBatch.DrawString(font, message, new Vector2(GraphicsDevice.Viewport.Width - font.MeasureString(message).X - 20, 20), Color.White);
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
 
@@ -97,9 +123,9 @@ namespace lab02
         private bool CheckCollision()
         {
             Rectangle personRect = new Rectangle((int)rMan.position.X, (int)rMan.position.Y, rMan.frameRect.Width, rMan.frameRect.Height);
-            Matrix personTransform = Matrix.CreateTranslation(new Vector3(rMan.position, 0));
+            Matrix personTransform = Matrix.CreateTranslation(new Vector3(rMan.position, 0.0f));
             Rectangle personRect2 = new Rectangle((int)rMan.position.X - GraphicsDevice.Viewport.Width, (int)rMan.position.Y, rMan.frameRect.Width, rMan.frameRect.Height);
-            Matrix personTransform2 = Matrix.CreateTranslation(new Vector3(rMan.position.X - GraphicsDevice.Viewport.Width, rMan.position.Y, 0));
+            Matrix personTransform2 = Matrix.CreateTranslation(new Vector3(rMan.position.X - GraphicsDevice.Viewport.Width, rMan.position.Y, 0.0f));
 
             foreach (Rock r in rocks)
             {
@@ -142,6 +168,21 @@ namespace lab02
                 yPosInB += stepY; // Move to the next row
             }
             return false; // No intersection found
+        }
+
+        private void UpdateInput()
+        {
+            KeyboardState keystate = Keyboard.GetState();
+
+            if(keystate.IsKeyDown(Keys.Escape))
+                Exit();
+
+            if(keystate.IsKeyDown(Keys.Left))
+                rMan.velocity.X = -RunningMan.MAN_SPEED;
+            else if (keystate.IsKeyDown(Keys.Right))
+                rMan.velocity.X = RunningMan.MAN_SPEED;
+            else
+                rMan.velocity.X = 0.0f;
         }
 
     }

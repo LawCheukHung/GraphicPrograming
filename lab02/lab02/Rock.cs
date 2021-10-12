@@ -15,6 +15,7 @@ namespace lab02
         public float rotateAngle, rotateSpeed;
         private SpriteBatch _spriteBatch;
         public static Random r = new Random();
+        public bool hit = false;
 
         public Rock(Game g) : base(g) { }
 
@@ -43,6 +44,7 @@ namespace lab02
             rotateAngle = (rotateAngle + rotateSpeed) % MathHelper.TwoPi;
             if(position.Y > 225)
             {
+                hit = true;
                 Initialize();
             }
 

@@ -51,3 +51,4 @@ C:\Users\a1\Documents\GitHub\GraphicPrograming\lab02\lab02\obj\Debug\netcoreapp3
 C:\Users\a1\Documents\GitHub\GraphicPrograming\lab02\lab02\obj\Debug\netcoreapp3.1\lab02.genruntimeconfig.cache
 C:\Users\a1\Documents\GitHub\GraphicPrograming\lab02\lab02\bin\Debug\netcoreapp3.1\Content\Images\Run.xnb
 C:\Users\a1\Documents\GitHub\GraphicPrograming\lab02\lab02\obj\Debug\netcoreapp3.1\lab02.csproj.AssemblyReference.cache
+C:\Users\a1\Documents\GitHub\GraphicPrograming\lab02\lab02\bin\Debug\netcoreapp3.1\Content\MyFont.xnb
