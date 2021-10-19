@@ -9,7 +9,7 @@ namespace lab02
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private Texture2D bgTexture;
+        private Texture2D bgTexture, cursor;
         private Rock[] rocks;
         private RunningMan rMan;
         private int rockCount = 5;
@@ -17,6 +17,10 @@ namespace lab02
         private int score, life;
         private double lastCollisionTime = 0;
         public const int LIFE_MISS_DELAY = 1000;
+
+        private ButtonState LastMouseButtonState = ButtonState.Released;
+        private Vector2 mouse;
+        private bool clicked;
 
         public Game1()
         {
@@ -50,6 +54,7 @@ namespace lab02
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             bgTexture = Content.Load<Texture2D>("Images\\background");
             font = Content.Load<SpriteFont>("MyFont");
+            cursor = Content.Load<Texture2D>("");
 
             // TODO: use this.Content to load your game content here
         }
@@ -133,6 +138,23 @@ namespace lab02
                 Matrix transform = Matrix.CreateTranslation(new Vector3(-r.center, 0)) * Matrix.CreateRotationZ(r.rotateAngle) * Matrix.CreateTranslation(new Vector3(r.position, 0));
                 rockRect = CalculateBoundingRectangle(rockRect, transform);
 
+                // Transform the mouse position to rock coordinates using invert
+                Vector2 mouseInRock = Vector2.Transform(mouse, Matrix.Invert(transform));
+                int xB = (int)Math.Round(mouseInRock.X);
+                int yB = (int)Math.Round(mouseInRock.Y);
+                // if the pixel is within the rock’s sprite rectangle
+                if (0 <= xB && xB < r.texture.Width && 0 <= yB && yB < r.texture.Height)
+                {
+                    // Get the color of that pixel and check if alpha channel = 0
+                    Color color = r.data[xB + yB * r.texture.Width];
+                    if (color.A != 0)
+                    {
+                        // mouse hit rock, reset the rock position, add mark
+                        score++;
+                        r.Initialize();
+                    }
+                }
+
                 if (rockRect.Intersects(personRect))
                 {
                     if (PixelCollision(personTransform, rMan.frameRect, rMan.texture.Width, ref rMan.data, transform, r.texture.Width, r.texture.Height, ref r.data))
@@ -183,6 +205,18 @@ namespace lab02
                 rMan.velocity.X = RunningMan.MAN_SPEED;
             else
                 rMan.velocity.X = 0.0f;
+
+            MouseState mouseState = Mouse.GetState();
+            mouse.X = mouseState.X;
+            mouse.Y = mouseState.Y;
+            if(mouseState.LeftButton == ButtonState.Pressed && mouseState.LeftButton != LastMouseButtonState)
+            {
+                clicked = true;
+            }
+            else
+            {
+                clicked = false;
+            }
         }
 
     }
