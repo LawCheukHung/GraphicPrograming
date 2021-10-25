@@ -54,7 +54,7 @@ namespace lab02
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             bgTexture = Content.Load<Texture2D>("Images\\background");
             font = Content.Load<SpriteFont>("MyFont");
-            cursor = Content.Load<Texture2D>("");
+            //cursor = Content.Load<Texture2D>("");
 
             // TODO: use this.Content to load your game content here
         }
@@ -174,10 +174,10 @@ namespace lab02
             Matrix AToB = transformA * Matrix.Invert(transformB);
             Vector2 stepX = Vector2.TransformNormal(Vector2.UnitX, AToB); Vector2 stepY = Vector2.TransformNormal(Vector2.UnitY, AToB);
             Vector2 yPosInB = Vector2.Transform(Vector2.Zero, AToB);
-            for (int yA = 0; yA < rectA.Bottom; yA++)
+            for (int yA = rectA.Top; yA <= rectA.Bottom; yA++)
             {   // For each row in A
                 Vector2 posInB = yPosInB; // At the beginning of the row
-                for (int xA = 0; xA < widthA; xA++)
+                for (int xA = rectA.Left; xA <= rectA.Right; xA++)
                 { // For each pixel in the row
                     int xB = (int)Math.Round(posInB.X); int yB = (int)Math.Round(posInB.Y);
                     if (0 <= xB && xB < widthB && 0 <= yB && yB < heightB)

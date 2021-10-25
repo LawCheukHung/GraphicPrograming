@@ -35,6 +35,8 @@ namespace lab02
             texture = Game.Content.Load<Texture2D>("Images\\asteroid");
             center.X = texture.Width / 2;
             center.Y = texture.Height / 2;
+            data = new Color[texture.Width * texture.Height];
+            texture.GetData<Color>(data);
             base.LoadContent();
         }
 
