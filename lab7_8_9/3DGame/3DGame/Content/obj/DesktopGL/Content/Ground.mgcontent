@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/Ground.x</SourceFile>
-  <SourceTime>2013-11-08T14:04:46+08:00</SourceTime>
+  <SourceTime>2021-11-22T19:09:08.8010737+08:00</SourceTime>
   <DestFile>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/bin/DesktopGL/Content/Ground.xnb</DestFile>
-  <DestTime>2021-11-22T10:53:17.1956446+08:00</DestTime>
+  <DestTime>2021-11-22T19:09:44.1092467+08:00</DestTime>
   <Importer>XImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54+08:00</ImporterTime>
   <Processor>ModelProcessor</Processor>

@@ -30,8 +30,11 @@ namespace _3DGame
             cam.aspectRatio = GraphicsDevice.Viewport.AspectRatio;
             cam.nearClip = 0.1f;
             cam.farClip = 1000;
-            cam.positionOffset = new Vector3(0, 0, -4); // cam position relative to windmill
-            cam.lookAtOffset = Vector3.Zero; // cam look at position relative to windmill
+            //cam.positionOffset = new Vector3(0, 0, -4); // cam position relative to windmill
+            //cam.lookAtOffset = Vector3.Zero; // cam look at position relative to windmill
+            cam.positionOffset = new Vector3(0, 0.25f, 1);
+            cam.lookAtOffset = new Vector3(0, 0.1f, -1);
+
             cam.targetUp = Vector3.Up;
             cam.targetPosition = new Vector3(0.0f, 0.9f, -4.0f); // windmill position
             cam.targetDirection = -Vector3.Forward;
@@ -80,6 +83,10 @@ namespace _3DGame
             mill.project = cam.project;
             copter.view = cam.view;
             copter.project = cam.project;
+
+            cam.targetDirection = player.direction;
+            cam.targetPosition = player.position;
+            cam.targetUp = player.up;
 
             base.Update(gameTime);
         }
