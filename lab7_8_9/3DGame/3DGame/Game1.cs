@@ -12,6 +12,7 @@ namespace _3DGame
         Matrix view, project;
 
         Windmill mill;
+        Helicopter copter;
 
         public Game1()
         {
@@ -29,6 +30,11 @@ namespace _3DGame
             mill.view = view;
             mill.project = project;
             Components.Add(mill);
+
+            copter = new Helicopter(this, new Vector3(0, 0.9f, -4));
+            copter.view = view;
+            copter.project = project;
+            Components.Add(copter);
 
             GraphicsDevice.BlendState = BlendState.Opaque;
             GraphicsDevice.DepthStencilState = DepthStencilState.Default;
