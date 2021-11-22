@@ -9,10 +9,11 @@ namespace _3DGame
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         Model groundModel;
-        Matrix view, project;
-
+        //Matrix view, project;
+        ChaseCamera cam;
         Windmill mill;
         Helicopter copter;
+        HelicopterControllable player;
 
         public Game1()
         {
@@ -23,22 +24,40 @@ namespace _3DGame
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            view = Matrix.CreateLookAt((new Vector3(0, 0.9f, 0)), new Vector3(0, 0.9f, -0.5f), Vector3.Up);
-            project = Matrix.CreatePerspectiveFieldOfView(MathHelper.ToRadians(45), GraphicsDevice.Viewport.AspectRatio, 0.1f, 1000);
-            mill = new Windmill(this, new Vector3(0, 0.9f, -4));
-            mill.view = view;
-            mill.project = project;
-            Components.Add(mill);
+            cam = new ChaseCamera(this);
+            cam.up = Vector3.Up;
+            cam.fieldOfView = MathHelper.PiOver4;
+            cam.aspectRatio = GraphicsDevice.Viewport.AspectRatio;
+            cam.nearClip = 0.1f;
+            cam.farClip = 1000;
+            cam.positionOffset = new Vector3(0, 0, -4); // cam position relative to windmill
+            cam.lookAtOffset = Vector3.Zero; // cam look at position relative to windmill
+            cam.targetUp = Vector3.Up;
+            cam.targetPosition = new Vector3(0.0f, 0.9f, -4.0f); // windmill position
+            cam.targetDirection = -Vector3.Forward;
+            Components.Add(cam);
 
-            copter = new Helicopter(this, new Vector3(0, 0.9f, -4));
-            copter.view = view;
-            copter.project = project;
-            Components.Add(copter);
+            // TODO: Add your initialization logic here
+            //view = Matrix.CreateLookAt((new Vector3(0, 0.9f, 0)), new Vector3(0, 0.9f, -0.5f), Vector3.Up);
+            //project = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, GraphicsDevice.Viewport.AspectRatio, 0.1f, 100.0f);
 
             GraphicsDevice.BlendState = BlendState.Opaque;
             GraphicsDevice.DepthStencilState = DepthStencilState.Default;
             GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
+
+            mill = new Windmill(this, new Vector3(0, 0.9f, -4));
+            mill.view = cam.view;
+            mill.project = cam.project;
+            Components.Add(mill);
+
+            copter = new Helicopter(this, new Vector3(0, 0.9f, -4));
+            copter.view = cam.view;
+            copter.project = cam.project;
+            Components.Add(copter);
+
+            player = new HelicopterControllable(this, new Vector3(0, 1, -6));
+            player.cam = cam;
+            Components.Add(player);
 
             base.Initialize();
         }
@@ -57,6 +76,10 @@ namespace _3DGame
                 Exit();
 
             // TODO: Add your update logic here
+            mill.view = cam.view;
+            mill.project = cam.project;
+            copter.view = cam.view;
+            copter.project = cam.project;
 
             base.Update(gameTime);
         }
@@ -66,7 +89,7 @@ namespace _3DGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            groundModel.Draw(Matrix.CreateScale(0.001f), view, project);
+            groundModel.Draw(Matrix.CreateScale(0.001f), cam.view, cam.project);
 
             base.Draw(gameTime);
         }
