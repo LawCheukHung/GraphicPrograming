@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab02\\lab02\\lab02.csproj": {}
+    "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab06\\lab02\\lab02.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab02\\lab02\\lab02.csproj": {
+    "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab06\\lab02\\lab02.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab02\\lab02\\lab02.csproj",
+        "projectUniqueName": "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab06\\lab02\\lab02.csproj",
         "projectName": "lab02",
-        "projectPath": "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab02\\lab02\\lab02.csproj",
+        "projectPath": "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab06\\lab02\\lab02.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab02\\lab02\\obj\\",
+        "outputPath": "C:\\Users\\user\\GitHub\\GraphicPrograming\\lab06\\lab02\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",

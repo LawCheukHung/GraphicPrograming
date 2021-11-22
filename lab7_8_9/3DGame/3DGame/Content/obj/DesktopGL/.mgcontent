@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/base.fbx</File>
+    <File>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/fan.fbx</File>
+    <File>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/Ground.x</File>
+    <File>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/Helicopter.fbx</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
