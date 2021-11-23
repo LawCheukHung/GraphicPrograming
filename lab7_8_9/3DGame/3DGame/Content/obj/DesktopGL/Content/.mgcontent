@@ -4,10 +4,10 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/base.fbx</File>
-    <File>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/fan.fbx</File>
-    <File>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/Ground.x</File>
-    <File>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/Helicopter.fbx</File>
+    <File>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/base.fbx</File>
+    <File>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/fan.fbx</File>
+    <File>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/Ground.x</File>
+    <File>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/Helicopter.fbx</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

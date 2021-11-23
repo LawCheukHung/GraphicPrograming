@@ -76,7 +76,7 @@ namespace _3DGame
             rotationY.Forward = direction;
             rotationY.Up = up;
             rotationY.Right = right;
-            rotationY.Translation = position;
+            //rotationY.Translation = position;
             return rotationY;
         }
 
