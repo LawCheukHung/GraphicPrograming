@@ -15,6 +15,12 @@ namespace _3DGame
         Helicopter copter;
         HelicopterControllable player;
 
+        Rocket[] rockets;
+        KeyboardState previousKb = Keyboard.GetState();
+
+        SpriteFont font;
+        string message = "";
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -58,6 +64,14 @@ namespace _3DGame
             copter.project = cam.project;
             Components.Add(copter);
 
+            rockets = new Rocket[10];
+            for(int i = 0; i < 10; i++)
+            {
+                rockets[i] = new Rocket(this, 1000);
+                rockets[i].cam = cam;
+                Components.Add(rockets[i]);
+            }
+
             player = new HelicopterControllable(this, new Vector3(0, 1, -6));
             player.cam = cam;
             Components.Add(player);
@@ -71,6 +85,7 @@ namespace _3DGame
 
             // TODO: use this.Content to load your game content here
             groundModel = Content.Load<Model>("ground");
+            font = Content.Load<SpriteFont>("MyFont");
         }
 
         protected override void Update(GameTime gameTime)
@@ -83,6 +98,42 @@ namespace _3DGame
             mill.project = cam.project;
             copter.view = cam.view;
             copter.project = cam.project;
+
+            KeyboardState kb = Keyboard.GetState();
+            if(kb.IsKeyDown(Keys.S) && previousKb.IsKeyUp(Keys.S))
+            {
+                for(int i = 0; i < 10; i++)
+                {
+                    if (!rockets[i].active)
+                    {
+                        rockets[i].Launch(player.direction, player.position);
+                        break;
+                    }
+                }
+            }
+
+            previousKb = kb;
+
+            for(int i = 0; i < 10; i++)
+            {
+                if (rockets[i].active)
+                {
+                    Ray ray = new Ray(rockets[i].previousPosition, rockets[i].speed);
+                    float distance = rockets[i].speed.Length() * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    foreach (ModelMesh mm in mill.fanModel.Meshes)
+                    {
+                        BoundingSphere sphere = mm.BoundingSphere;
+                        sphere.Center += mill.position; // move to position of your fan model
+                        sphere.Radius *= 10f; // model scale
+                        if (ray.Intersects(sphere) != null && ray.Intersects(sphere) < distance)
+                        {
+                            message = "Rocket " + (i + 1) + " will hit the fan.";
+                            //rockets[i].active = false;
+                        }
+                    }
+                }
+            }
 
             cam.targetDirection = player.direction;
             cam.targetPosition = player.position;
@@ -99,6 +150,14 @@ namespace _3DGame
             groundModel.Draw(Matrix.CreateScale(0.001f), cam.view, cam.project);
 
             base.Draw(gameTime);
+
+            _spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.LinearWrap, DepthStencilState.None, RasterizerState.CullNone);
+            _spriteBatch.DrawString(font, message, new Vector2(20, 20), Color.DarkBlue);
+            _spriteBatch.End();
+
+            GraphicsDevice.BlendState = BlendState.Opaque;
+            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+
         }
     }
 }

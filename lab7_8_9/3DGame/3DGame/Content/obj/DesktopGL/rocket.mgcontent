@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/Helicopter.fbx</SourceFile>
-  <SourceTime>2021-11-23T09:33:09.9318047+08:00</SourceTime>
-  <DestFile>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/bin/DesktopGL/Helicopter.xnb</DestFile>
-  <DestTime>2021-11-23T10:12:59.0693739+08:00</DestTime>
+  <SourceFile>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/rocket.fbx</SourceFile>
+  <SourceTime>2020-12-09T18:25:00+08:00</SourceTime>
+  <DestFile>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/bin/DesktopGL/rocket.xnb</DestFile>
+  <DestTime>2021-11-23T10:12:59.099293+08:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2018-12-09T00:35:54+08:00</ImporterTime>
   <Processor>ModelProcessor</Processor>
@@ -66,7 +66,7 @@
   </Parameters>
   <Dependencies />
   <BuildAsset>
-    <string>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/bin/DesktopGL/HelicopterTexture_0.xnb</string>
+    <string>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/bin/DesktopGL/rocket.fbm/rocket_0.xnb</string>
   </BuildAsset>
   <BuildOutput />
 </PipelineBuildEvent>

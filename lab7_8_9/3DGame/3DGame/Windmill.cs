@@ -11,8 +11,8 @@ namespace _3DGame
 {
     class Windmill : DrawableGameComponent
     {
-        Model baseModel, fanModel;
-        Vector3 position;
+        internal Model baseModel, fanModel;
+        internal Vector3 position;
         float rotateAngle, rotateSpeed = 0.02f;
         internal Matrix view, project;
 

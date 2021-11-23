@@ -69,3 +69,8 @@ C:\Users\a1\Documents\GitHub\GraphicPrograming\lab7_8_9\3DGame\3DGame\obj\Debug\
 C:\Users\a1\Documents\GitHub\GraphicPrograming\lab7_8_9\3DGame\3DGame\obj\Debug\netcoreapp3.1\3DGame.dll
 C:\Users\a1\Documents\GitHub\GraphicPrograming\lab7_8_9\3DGame\3DGame\obj\Debug\netcoreapp3.1\3DGame.pdb
 C:\Users\a1\Documents\GitHub\GraphicPrograming\lab7_8_9\3DGame\3DGame\obj\Debug\netcoreapp3.1\3DGame.genruntimeconfig.cache
+C:\Users\a1\Documents\GitHub\GraphicPrograming\lab7_8_9\3DGame\3DGame\bin\Debug\netcoreapp3.1\Content\fbx\rocket.xnb
+C:\Users\a1\Documents\GitHub\GraphicPrograming\lab7_8_9\3DGame\3DGame\bin\Debug\netcoreapp3.1\Content\rocket.fbm\rocket.xnb
+C:\Users\a1\Documents\GitHub\GraphicPrograming\lab7_8_9\3DGame\3DGame\bin\Debug\netcoreapp3.1\Content\rocket.fbm\rocket_0.xnb
+C:\Users\a1\Documents\GitHub\GraphicPrograming\lab7_8_9\3DGame\3DGame\bin\Debug\netcoreapp3.1\Content\rocket.xnb
+C:\Users\a1\Documents\GitHub\GraphicPrograming\lab7_8_9\3DGame\3DGame\bin\Debug\netcoreapp3.1\Content\MyFont.xnb

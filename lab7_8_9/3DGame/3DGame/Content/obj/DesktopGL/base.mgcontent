@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/base.fbx</SourceFile>
-  <SourceTime>2016-09-21T16:08:58+08:00</SourceTime>
-  <DestFile>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/bin/DesktopGL/base.xnb</DestFile>
-  <DestTime>2021-11-22T10:53:16.1868641+08:00</DestTime>
+  <SourceFile>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/base.fbx</SourceFile>
+  <SourceTime>2021-11-23T09:33:09.9397837+08:00</SourceTime>
+  <DestFile>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/bin/DesktopGL/base.xnb</DestFile>
+  <DestTime>2021-11-23T10:12:58.8569765+08:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2018-12-09T00:35:54+08:00</ImporterTime>
   <Processor>ModelProcessor</Processor>
@@ -66,7 +66,7 @@
   </Parameters>
   <Dependencies />
   <BuildAsset>
-    <string>C:/Users/user/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/bin/DesktopGL/fbx/windmill_0.xnb</string>
+    <string>C:/Users/a1/Documents/GitHub/GraphicPrograming/lab7_8_9/3DGame/3DGame/Content/bin/DesktopGL/fbx/windmill_0.xnb</string>
   </BuildAsset>
   <BuildOutput />
 </PipelineBuildEvent>
